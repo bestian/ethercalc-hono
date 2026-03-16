@@ -16,6 +16,20 @@
 	},
 	"compatibility_flags": [
 		"nodejs_compat"
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"name": "ROOM_DO",
+				"class_name": "RoomDurableObject"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"tag": "v1-room-do",
+			"new_classes": ["RoomDurableObject"]
+		}
 	]
 	/**
 	 * Smart Placement

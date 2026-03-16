@@ -47,6 +47,10 @@ Then test the local API:
 curl -i "http://127.0.0.1:8787/api/"
 ```
 
+```sh
+curl -i "http://127.0.0.1:8787/_new"
+```
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh
