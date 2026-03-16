@@ -35,6 +35,18 @@ npm install
 npm run dev
 ```
 
+### Run Cloudflare Worker API locally
+
+```sh
+npm run preview
+```
+
+Then test the local API:
+
+```sh
+curl -i "http://127.0.0.1:8787/api/"
+```
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh
