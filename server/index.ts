@@ -1,12 +1,18 @@
-export default {
-	fetch(request) {
-		const url = new URL(request.url);
+import { Hono } from "hono";
 
-		if (url.pathname.startsWith("/api/")) {
-			return Response.json({
-				name: "Cloudflare",
-			});
-		}
-		return new Response(null, { status: 404 });
-	},
-} satisfies ExportedHandler<Env>;
+type Bindings = {
+	ASSETS: Fetcher;
+};
+
+const app = new Hono<{ Bindings: Bindings }>();
+
+app.get("/api/", (c) => {
+	return c.json({ name: "Cloudflare" });
+});
+
+// 靜態資源交給 ASSETS
+app.get("*", (c) => {
+	return c.env.ASSETS.fetch(c.req.raw);
+});
+
+export default app;
